@@ -9,8 +9,8 @@ require ('connect.php');
         $description = $_POST['description'];
         }
         $userId = $_SESSION['logged_user_id'];
-        $statement = $pdo->prepare("INSERT INTO POSTS(name,description,id_aythor) VALUES ('$name', '$description','$userId')");
-        $ststement->exzecute();
+        $statement = $pdo->prepare("INSERT INTO POSTS(name,description,id_author) VALUES ('$name', '$description','$userId')");
+        $statement->execute();
         if (isset($statement))  {
         $message = 'Статья успешно создана';
         }else{

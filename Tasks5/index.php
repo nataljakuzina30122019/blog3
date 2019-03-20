@@ -1,12 +1,11 @@
-<?php
-
-error_reporting(-1);
-ini_set('display_errors', 'On');
-require ('connect.php');
-$statement = $pdo->qure("SELECT * FROM posts");
-$posts = $statement->fetchAll(PDO:: FETCH_ASSOC);
-if (isset($_SESSION['logged_user_id'])){
-    $sessionUserId = $_SESSION['logged_user_id'];
+<?php 
+error_reporting(-1); 
+ini_set('display_errors', 'On'); 
+require ('connect.php'); 
+$statement = $pdo->query("SELECT * FROM posts "); 
+$posts = $statement->fetchAll(PDO:: FETCH_ASSOC); 
+if (isset($_SESSION['logged_user_id'])) { 
+$sessionUserId = $_SESSION['logged_user_id']; 
 }
 ?>
 <!doctype html>
@@ -24,7 +23,7 @@ if (isset($_SESSION['logged_user_id'])){
 
 <div class="container">
     <?php if (isset($_SESSION['logged_user_id'])) : ?>
-        <?php $statement = $pdo->query("SELECT * FROM users WHERE id = '$sessionUserId'");
+        <?php $statement = $pdo->query("SELECT * FROM user WHERE id = '$sessionUserId'");
         $user = $statement->fetchAll(PDO:: FETCH_ASSOC);
         $userName = $user[0]['username'];
         ?>
@@ -111,5 +110,8 @@ if (isset($_SESSION['logged_user_id'])){
 </html>
 
 
+
+
+ 
 
 
